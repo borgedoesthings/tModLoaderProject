@@ -18,5 +18,8 @@
 		<Reference Include="Ionic.Zip.Reduced">
 			<HintPath>..\src\tModLoader\Terraria\Libraries\Common\Ionic.Zip.Reduced.dll</HintPath>
 		</Reference>
+		<Reference Include="log4net">
+		  <HintPath>..\src\tModLoader\Terraria\Libraries\Common\log4net.dll</HintPath>
+		</Reference>
   </ItemGroup>
 </Project>
