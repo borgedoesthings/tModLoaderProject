@@ -122,7 +122,7 @@
  	public ActiveSound GetActiveSound(SlotId id)
  	{
  		if (!_trackedSounds.Has(id))
-@@ -53,6 +_,7 @@
+@@ -53,10 +_,14 @@
  
  		return _trackedSounds[id];
  	}
@@ -130,6 +130,13 @@
  
  	public void PauseAll()
  	{
+ 		foreach (SlotVector<ActiveSound>.ItemPair item in (IEnumerable<SlotVector<ActiveSound>.ItemPair>)_trackedSounds) {
++			if (Main.gamePaused && item.Value.Style.Type == SoundType.Music) {
++				continue; // Do not pause background music
++			}
+ 			item.Value.Pause();
+ 		}
+ 	}
 @@ -91,7 +_,7 @@
  		}
  	}

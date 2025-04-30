@@ -22,22 +22,30 @@
  	}
  
  	public static void Load(IServiceProvider services)
-@@ -29,6 +_,15 @@
- 
+@@ -26,7 +_,8 @@
+ 			SoundPlayer = new SoundPlayer();
+ 		}
+ 	}
+-
++	//490 senior design and developement group project issue location
++	//Trying to fix issue were audio is shut off when in the pause menu
  	public static void Update()
  	{
-+		// Thread safety test code, don't anyone dare to ship this.
-+		/*
-+		if (Main.rand.Next(3) == 0) {
-+			System.Threading.ThreadPool.QueueUserWorkItem(_ => {
-+				PlaySound(new SoundStyle($"Terraria/Sounds/Zombie_{Main.rand.Next(1, 100)}"));
-+			});
-+		}
-+		*/
-+
  		if (IsAudioSupported) {
- 			if (Main.audioSystem != null)
- 				Main.audioSystem.UpdateAudioEngine();
+@@ -43,6 +_,13 @@
+ 			AreSoundsPaused = flag;
+ 			SoundPlayer.Update();
+ 		}
++		else {
++			Initialize();
++			if (IsAudioSupported) {
++				Load(Main.instance.Services); // manual passthrough
++				Update();
++			}
++		}
+ 	}
+ 
+ 	public static void Reload()
 @@ -56,6 +_,8 @@
  		}
  	}
