@@ -154,9 +154,16 @@ Mods: {
 				MapEntry: Basic Tile Entity Tile
 				StatusText: Filled: {0}%
 			}
+
+			ExampleGrass.MapEntry: Example Grass
 		}
 
 		Items: {
+			ExampleGrassSeed: {
+				DisplayName: ExampleGrass Seed
+				Tooltip: This is an item that creates ExampleGrass on Dirt
+			}
+
 			ExampleStaff: {
 				DisplayName: Example Staff
 				Tooltip: This is a modded magic staff weapon
